@@ -1,0 +1,42 @@
+﻿@model WebApp_1.Models.User_Master_Table_1
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>User_Master_Table_1</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.User_MasterFName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.User_MasterFName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.User_MasterSName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.User_MasterSName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.User_MasterEmail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.User_MasterEmail)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.User_Master_MO_BO)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.User_Master_MO_BO)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.User_MasterID">Edit</a> |
+    <a asp-action="UserList">Back to List</a>
+</div>

@@ -1,0 +1,46 @@
+﻿@model WebApp_1.Models.User_Master_Table_1
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>User_Master_Table_1</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddUser" asp-controller="User">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @Html.HiddenFor(x => x.User_MasterID)
+                <label asp-for="User_MasterFName" class="control-label"></label>
+                <input asp-for="User_MasterFName" class="form-control" />
+                <span asp-validation-for="User_MasterFName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User_MasterSName" class="control-label"></label>
+                <input asp-for="User_MasterSName" class="form-control" />
+                <span asp-validation-for="User_MasterSName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User_MasterEmail" class="control-label"></label>
+                <input asp-for="User_MasterEmail" class="form-control" />
+                <span asp-validation-for="User_MasterEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User_Master_MO_BO" class="control-label"></label>
+                <input asp-for="User_Master_MO_BO" class="form-control" />
+                <span asp-validation-for="User_Master_MO_BO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

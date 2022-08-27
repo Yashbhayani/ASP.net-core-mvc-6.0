@@ -1,0 +1,94 @@
+﻿@model IEnumerable<WebApp_1.Models.User_Master_Table_1>
+
+@{
+    ViewData["Title"] = "UserList";
+}
+
+<h1>UserList</h1>
+
+<p>
+    <a asp-action="Index">Create New</a>
+</p>
+
+<div class="container-fluid">
+
+    <div class="row">
+        @using (Html.BeginForm("UserList", "User", FormMethod.Post))
+        {
+            <div class="form-horizontal">
+
+                <div class="form-group">
+                    <form class="d-flex">
+                        <label class="col-md-2 control-label">Search</label>
+
+                        <div class="col-md-8">
+
+                            @Html.TextBox("searchtext", null, new { @class = "form-control", @placeholder = "Search your text hear", @style = "max-width: 100%" })
+
+                        </div>
+                        <br/>
+                        <div class="col-md-6">
+
+                            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"> Search </span></button>
+                            <button type="reset" class="btn btn-danger">Reset</button>
+                        </div>
+                   </form>
+
+                </div>
+            </div>
+        }
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.ActionLink("Name", "UserList", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Name" })
+                        </th>
+
+                        <th>
+                            @Html.ActionLink("SurName", "UserList", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "SurName" })
+                        </th>
+
+                        <th>
+                            @Html.ActionLink("Email", "UserList", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Email" })
+                        </th>
+
+                        <th>
+                            @Html.ActionLink("Mobile Number", "UserList", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : (ViewBag.SortOrder == "Asc" ? "Desc" : "Asc"), SortBy = "Mobile Number" })
+                        </th>
+                        <th>
+                            Action 
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model) {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.User_MasterFName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.User_MasterSName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.User_MasterEmail)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.User_Master_MO_BO)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.User_MasterID">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.User_MasterID">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.User_MasterID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
